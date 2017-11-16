@@ -92,7 +92,7 @@ function backToCharacters(s) {
   return out;
 }
 
-function encode(s) {
+exports.encode = function encode(s) {
   var output = s;
   output = upperCase(output);
   output = eliminateBadChars(output);
@@ -104,4 +104,3 @@ function encode(s) {
   return output
   
 }
-console.log(encode("I am the captain"))
