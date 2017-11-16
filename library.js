@@ -1,6 +1,10 @@
 var upperCase = s => s.toUpperCase();
 
-
+function zeropad(s, a) {
+  var str = s;
+  var ans = "0".repeat(10).substring(0, a - str.length) + str;
+  return ans
+}
 
 function eliminateBadChars(s) {
   var charset = [];
@@ -19,7 +23,9 @@ function eliminateBadChars(s) {
 
 
 function spacesToStars(s) {
-  return s.replace(/[ ]/g, "*"); // Replaces all space characters with * characters
+  var r = s.replace(/[ ]/g, "*"); // Replaces all space characters with * characters;
+  r.length
+  return r;
 }
 
 
@@ -34,8 +40,7 @@ function toBase3String(s) {
     var char = s[i];
     out.push( charset.indexOf(char).toString(3) ) // Adds to the out array, the index of the character in the charset variable, in base 3
   }
-  console.log(out.join("").length)
-  return out.join("");
+  return out.map(a => { return zeropad(a, 3) }).join("");
 }
 
 
@@ -44,7 +49,6 @@ function splitInto3(s) {
   if ((s.length % 3) !== 0) {
     throw Error("String is not divisible by 3");
   }
-  console.log(s.length)
   var start = 0;
   var third = s.length / 3;
   var twothirds = 2 * third;
@@ -68,7 +72,6 @@ function buildNewNumberset( splitInto3output ) {
   for (var i = 0; i < partA.length; i++) {
     out += partA[i] + partB[i] + partC[i];
   }
-
   return out
 }
 
